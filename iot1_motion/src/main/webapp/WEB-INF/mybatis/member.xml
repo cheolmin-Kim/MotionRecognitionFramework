@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+	<insert id="insert" parameterType="com.mycompany.myapp.dto.Member">
+		insert into member(
+		mid, memail, mname)
+		<!-- moriginalfilename, msavedfilename, mfilecontent, mlevel) -->
+		values(
+		#{mid}, #{memail} , #{mname})<!-- , 
+		#{moriginalfilename}, #{msavedfilename} , #{mfilecontent}, #{mlevel}) -->
+
+	</insert>
+
+	<select id="selectAll" parameterType="com.mycompany.myapp.dto.Member">
+		select mid, memail, mname, mlevel
+		from
+		member
+		order by mid desc
+	</select>
+
+	<select id="selectByPage" parameterType="map"
+		resultType="com.mycompany.myapp.dto.Member">
+		select *
+		from(
+		select rownum as r, memail, mname 
+		from (
+		select memail, mname
+		from member order by mid desc
+		)
+		where rownum&lt;=#{endNum}
+		)
+		where
+		r&gt;=#{startNum}
+
+	</select>
+
+	
+<!-- 	<select id="selectByMemail" resultType="com.mycompany.myapp.dto.Member" -->
+	<select id="selectByMid" resultType="com.mycompany.myapp.dto.Member"
+		parameterType="String">
+		select * from member where mid=#{mid}
+	</select>
+
+	<update id="update" parameterType="com.mycompany.myapp.dto.Member">
+		<if test="moriginalfilename!= null">
+			update member set memail=#{memail}, mname=#{mname},
+			moriginalfilename=#{moriginalfilename}, msavedfilename=#{msavedfilename}, mfilecontent=#{mfilecontent}, mlevel=#{mlevel} where memail=#{memail}
+		</if>
+		<if test="moriginalfilename==null">
+			update member set memail=#{memail}, mname=#{mname},
+			where mid=#{memail}
+		</if>
+	</update>
+
+	<delete id="delete" parameterType="String">
+		delete from member
+		where mid=#{mid}
+	</delete>
+
+
+	<!-- 회원 리스트 -->
+	<select id="selectPage" parameterType="map"
+		resultType="com.mycompany.myapp.dto.Member">	
+		select *
+		from ( select rownum as r, mid, mname, memail, mlevel 
+			from ( select mid, mname, memail, mlevel 
+				from member order by mlevel desc, mname asc  
+			) 
+			where rownum &lt;=#{endNum}
+		)
+		where r &gt;=#{startNum}
+	</select>
+	
+	<!-- 회원 리스트 카운트 -->
+	<select id="countAll" resultType="int">
+		select count(*) from member
+	</select>
+	
+	<update id="updateGrade">
+		update member set mlevel=#{mlevel} where mid=#{mid}	
+	</update>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

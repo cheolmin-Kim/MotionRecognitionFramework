@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextIpAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="text"
+            android:text="IP를입력해주세요." />
+
+        <Button
+            android:id="@+id/btnIpAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="handleIPAddress"
+            android:text="IP입력" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtSensorName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="3축값 보기" />
+
+    <TextView
+        android:id="@+id/yaw"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/pitch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/roll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <view
+            android:id="@+id/mycompass"
+            class="com.mycompany.gyroproject.Compass"
+            android:layout_width="192dp"
+            android:layout_height="161dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="버튼상태:" />
+
+                <TextView
+                    android:id="@+id/txtButtonStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Off"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="인식된 모션:" />
+
+                <TextView
+                    android:id="@+id/txtMotionStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Motion"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonTrigger"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="handleBtnTrigger"
+        android:text="Trigger 버튼" />
+
+
+</LinearLayout>

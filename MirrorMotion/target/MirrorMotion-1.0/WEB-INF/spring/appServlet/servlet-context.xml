@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<!--xml name space. 접두사가 없으니 default tag -->
+	<!--접두사 xsi가 있으니 xsi 태그가 있으면 이 주소 속성에 정의되어있음을 의미한다. -->
+	<!-- @어노테이션을 이용해서 개발할 수 있도록 설정 -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<!--Controller가 필요 없는 정적 리소스 폴더 설정 -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<!--컨트롤러가 리턴한 뷰이름을 JSP로 매핑  -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	<!-- 어떤 패키지부터 @어노테이션을 찾아서 컨트롤러를 사용할 건지 설정 -->
+	<context:component-scan base-package="com.mycompany.myapp" />
+	
+	<!--멀티파트로 파일이 업로드 될때 해석하기 위한 설정  -->
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+	<!--AOP주입  -->
+	<aop:aspectj-autoproxy/>
+	
+		<!-- WebSocket URL Mapping -->
+	<websocket:handlers>
+		<websocket:mapping handler="actionHandler" path="/websocket/action"/>
+	</websocket:handlers>
+		
+</beans:beans>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		<!-- 다른 dispatcher servlet도 사용 가능한 공통 관리 객체 등록  -->
+
+<!--  Connetcion pool(DataSource) 설정 -->
+<bean name="dataSource"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="oracle.jdbc.OracleDriver"/>
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+		<property name="user" value="iotuser"></property>
+		<property name="password" value="iot12345"></property>
+		<property name="maxPoolSize" value="1"></property>
+		<property name="initialPoolSize" value="1"></property>
+		<property name="acquireIncrement" value="1"></property>
+		<property name="minPoolSize" value="1"></property>
+		</bean>
+		
+		<!--jdbc Template 설정  -->
+		<bean name="jdbcTemplate"
+				class="org.springframework.jdbc.core.JdbcTemplate">
+			<property name="dataSource" ref="dataSource"></property>			
+		</bean>
+		<!--Mybatis 설정  -->
+		 <bean name="sqlSessionFactory"
+				class="org.mybatis.spring.SqlSessionFactoryBean">
+				<property name ="dataSource" ref="dataSource"/>
+				<!-- 각 객체마다 매퍼 xml파일을 저장한다.  -->
+				<property name="mapperLocations" value="/WEB-INF/mybatis/*.xml"/>
+		</bean>
+		
+		<!-- 기본생성자가 아니기 때문에 생성자주입을 한다. 
+		Mybatis를 쓰기위한 스프링 설정파일 -->
+		<bean name="sqlSessionTemplate"
+				class="org.mybatis.spring.SqlSessionTemplate">
+				<constructor-arg ref="sqlSessionFactory"/>
+		</bean> 
+		
+		<!--트랜잭션설정  -->
+		<bean name="transactionManager"
+				class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+				<!--트랜잭션을 위한 커넥션풀 설정  -->
+				<property name="dataSource" ref="dataSource"></property>
+		</bean>
+		<!--@Transactional을 사용하기 위해 annotation-driven설정  -->
+		<tx:annotation-driven/>
+		
+</beans>

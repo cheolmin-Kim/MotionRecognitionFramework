@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="boardcomment">
+	<!-- 덧글 작성 -->
+	<insert id="insert" parameterType="com.mycompany.myapp.dto.BoardComment">
+		<selectKey keyProperty="bcno" resultType="int" order="AFTER">
+			select boardcomment_bcno_seq.currval from dual
+		</selectKey>
+			insert into boardcomment (bno, bcno,  bcwriter, bcdate, bccomment, bcpassword, mid )
+			values (#{bno}, boardcomment_bcno_seq.nextval, #{bcwriter}, sysdate, #{bccomment}, #{bcpassword}, #{mid} )
+	</insert>
+	
+	<!-- 덧글 리스트 -->
+	<select id="selectcommentlist" parameterType="com.mycompany.myapp.dto.BoardComment"
+		resultType="com.mycompany.myapp.dto.BoardComment">
+		select 
+			bcno,
+			bccomment,			
+			bcwriter,
+			bcdate,
+			mid 
+		from boardcomment 
+		where bno = #{bno} 
+		order by bcno asc	
+	</select>	
+	
+	<select id="selectByBcno"  parameterType="int" resultType="com.mycompany.myapp.dto.BoardComment">
+		select * from boardcomment where bcno=#{bcno}
+	</select>
+	
+	<!-- 덧글 삭제 -->
+	<delete id="delete">
+		delete from boardcomment where bcno=#{bcno}
+	</delete>
+	
+	<update id="update">
+		update from boardcomment where bcno=#{bcno}
+	</update>
+</mapper>

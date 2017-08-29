@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="likecount">
+	<insert id="insert" parameterType="com.mycompany.myapp.dto.Likecount">
+		insert into likecount (
+			bno, mid
+		)
+		values (
+			#{bno},
+			#{mid}
+		)
+	</insert>	
+	
+	<delete id="delete" parameterType="com.mycompany.myapp.dto.Likecount">
+		delete from likecount where bno=#{bno} and mid=#{mid}
+	</delete>
+</mapper>

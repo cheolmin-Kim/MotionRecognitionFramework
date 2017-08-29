@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/server/ButtonResource.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/Recognizer.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/gyroMotionInterfaceImpl/GyroMotionImpl_ZigZag.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/gyroMotionInterfaceImpl/GyroMotionImpl_V.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/server/UltrasonicResource.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/gyroMotionInterfaceImpl/GyroMotionImpl_PitchRotation.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/Action.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/DistanceMotionList.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/Interfaces/ActionInterface.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/server/IRResource.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/gyroMotionInterfaceImpl/GyroMotionImpl_N.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/gyroMotionInterfaceImpl/GyroMotionImpl_Right.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/run/MotionCheck.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/Interfaces/GyroMotionInterface.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/gyroMotionInterfaceImpl/GyroMotionImpl_Up.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/server/CoapResourceServer.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/gyroMotionInterfaceImpl/GyroMotionImpl_LeftDown.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/gyroMotionInterfaceImpl/GyroMotionImpl_Down.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/server/GyroscopeResource.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/Interfaces/TriggerMotionInterface.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/mqtt/Distributor.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/gyroMotionInterfaceImpl/GyroMotionImpl_Left.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/run/GyroMotions.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/server/MQTTResource.java</file>
+            <file>file:/E:/IoTCourse/GitRepository/IoTFinalProject/MotionRecognition/src/Motion/gyroMotionInterfaceImpl/GyroMotionImpl_LeftUp.java</file>
+        </group>
+    </open-files>
+</project-private>
